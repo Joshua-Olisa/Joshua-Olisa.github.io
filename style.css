@@ -51,11 +51,11 @@ nav ul a:hover{
   opacity: 1;
 }
 .nav-btn{
-  padding: 0.75em;
+  padding: 0.5em;
   color: white;
   font-weight: 500;
   letter-spacing: 1px;
-  border-radius: 2em;
+  border-radius: 0.3em;
   font-size: 1.1em;
   border: 2px solid #3ec5ff;
   cursor: pointer;
@@ -66,6 +66,25 @@ nav ul a:hover{
 }
 .nav-btn:hover{
   background-color: white;
+  color: var(--background);
+}
+.nav-btn2{
+  padding: 0.8em;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 0.3em;
+  font-size: 1.1em;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  background: none;
+  white-space: nowrap;
+  display: inline-block;
+}
+.nav-btn2:hover{
+  background-color: white;
+  border: 2px solid rgba(15, 15, 15, 0.8);
   color: var(--background);
 }
 span{
@@ -117,6 +136,24 @@ section{
   color: white;
   margin-bottom: 1em;
 }
+
+#typewriter {
+  color: white;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: white;
+  margin-left: 0.1em;
+  width: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { background-color: white; }
+  50% { background-color: transparent; }
+  100% { background-color: white; }
+}
 .title {
   font-size: 3em;
   text-align: center;
@@ -150,7 +187,7 @@ section{
   transition: all 300ms ease;
   padding: 1em;
   width: 8em;
-  border-radius: 2em;
+  border-radius: 0.3em;
 }
 
 .btn-color-1 {
@@ -199,7 +236,15 @@ section{
 }
 #about img{
   width: 25vw;
-  border-radius: 1em; 
+  border-radius: 1em;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.8s ease-out;
+}
+
+#about img.animate {
+  opacity: 1;
+  transform: translateX(0);
 }
 .about-box{
   display: flex;
@@ -207,9 +252,18 @@ section{
   text-align: left;
   gap: 1.5em;
 }
+
 .about-box h1{
   font-size: 3em;
 }
+
+.about-info p {
+  font-size: 1em;
+  color: white;
+  opacity: 0.8;
+  line-height: 1.8;
+}
+
 .about-box p{
   color: white; 
   opacity: 0.8;
@@ -247,6 +301,7 @@ section{
 }
 #projects{
   background-color: var(--background);
+  padding: 5% 10%;
 }
 .header{
   text-align: center;
@@ -254,23 +309,126 @@ section{
   margin: 0.53em 0;
 }
 .project-container{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2em;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.carousel-item {
+  flex: 0 0 calc(50% - 1rem); /* Show 2 items at once on desktop */
+  min-width: calc(50% - 1rem);
+  max-width: calc(50% - 1rem);
+  height: 600px;
+  padding: .5em;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 200px; /* Fixed height for images */
+  object-fit: cover;
+  border-radius: 0.5em;
+  margin-bottom: 1rem;
+}
+
+.carousel-item h1 {
+  font-size: 1.5em;
+  color: white;
+  margin: 0;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 40px; /* Fixed height for headings */
+  display: flex;
+  align-items: center;
+}
+
+.carousel-item p {
+  font-size: 1em;
+  color: white;
+  opacity: 0.8;
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 6; /* Limit to 6 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 2.5rem;
+  align-items: stretch; /* Ensure all items stretch to same height */
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 2em;
+  padding: 0.5em;
+  cursor: pointer;
+  border-radius: 0.3em;
+  transition: background 0.3s ease;
+  z-index: 10;
+}
+
+.carousel-nav:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 2em;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.indicator.active {
+  background: #3ec5ff;
 }
 .box{
   border: 3px solid rgb(49,49,49);
   border-radius: 0.5em;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   overflow: hidden;
   object-fit: cover;
   padding: 1.5em;
-  gap: 2em;
+  gap: 1.5em;
   color: white;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  height: 100%;
+  min-height: 400px;
+  width: 100%;
 }
 .box:hover{
   border: 3px solid rgb(100, 100, 100);
@@ -296,11 +454,17 @@ section{
   background: rgb(53, 53, 53);
   color: white;
   border: rgb(53, 53, 53) 0.1rem solid;
+  display: inline-flex;       /* use flexbox for icon + text alignment */
+  align-items: center;        /* vertically center icon and text */
+  white-space: nowrap;        /* prevent text wrapping to next line */
+  width: fit-content;         /* button width fits content */
+  padding: 10px 10px;         /* adjust padding as needed */
+  gap: 8px;                   /* space between icon and text */
 }
 
 .btn-color-1p:hover {
   cursor: pointer;
-  background: white;
+  background: white;  
   color: var(--background);
 }
 
@@ -343,7 +507,10 @@ footer{
 
 @media(max-width: 968px){
   section{
-    padding: 8em 15%;
+    padding: 8em 8%;
+  }
+  nav{
+    padding: 1em 8%;
   }
   nav .nav-btn{
     display: none;
@@ -384,54 +551,270 @@ footer{
     display: block;
   }
 
-  #home h1{
-    font-size: 4em;
+  #home{
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 8em 8%;
   }
 
-  #home h3{
-    font-size: 2em;
+  .Profile-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: auto;
   }
 
   #home img{
-    width: 24vw;
+    width: 60vw;
+    max-width: 300px;
+  }
+
+  .title{
+    font-size: 2.5em;
+  }
+
+  .section_text_p1{
+    font-size: 1.2em;
+  }
+
+  .section_text_p2{
+    font-size: 1.4em;
+  }
+
+  .btn-container{
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .btn{
+    width: auto; /* Allow button to fit content */
+    padding: 0.8em 1.5em; /* Adjust padding for better fit */
+    font-size: 1em; /* Adjust font size for better readability */
+  }
+
+  #socials-container {
+    flex-wrap: wrap; /* Allow icons to wrap to the next line if needed */
+    justify-content: center; /* Center the icons */
+    gap: 1rem; /* Add spacing between icons */
+    width: auto; /* Prevent stretching */
+    padding: 0 1rem; /* Add some padding for better spacing */
+  }
+  
+  #socials-container .icon {
+    height: 2em; /* Adjust icon size for mobile */
+    width: auto; /* Maintain aspect ratio */
   }
 
   #about{
     flex-direction: column;
+    padding: 8em 8%;
+    gap: 3em;
   }
+
   #about img{
-    width: 32vw;
+    width: 80vw;
+    max-width: 400px;
+    align-self: center;
   }
-  #about h1{
+  .about-box h1{
+    font-size: 2.5em;
+    text-align: center;
+  }
+  .about-box h2{
+    font-size: 2em;
+    text-align: center;
+  }
+  .skills{
+    gap: 2em;
+    justify-content: center;
+  }
+  .about-box ul{
+    font-size: 1em;
+  }
+
+  /* Mobile carousel styles */
+  .carousel-wrapper{
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .carousel-item{
+    flex: 0 0 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .carousel-nav{
+    font-size: 1.5em;
+    padding: 0.3em;
+  }
+
+  .carousel-prev{
+    left: 5px;
+  }
+
+  .carousel-next{
+    right: 5px;
+  }
+
+  .box{
+    min-height: 350px;
+    padding: 1.2em;
+  }
+
+  .box h1{
+    font-size: 1.5em;
+  }
+
+  .header{
     font-size: 3em;
   }
-  #about ul{
-    font-size: 1em;
+
+  #projects{
+    padding: 8em 8%;
+  }
+
+  .project-container{
+    padding: 0 40px;
+  }
+
+  .carousel-prev{
+    left: 5px;
+  }
+
+  .carousel-next{
+    right: 5px;
+  }
+
+  #contact{
+    padding: 8em 8%;
+  }
+
+  .socials{
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5em;
   }
 }
 
 @media(max-width: 768px){
-  #home h1{
-    font-size: 2.5em;
+  section{
+    padding: 6em 5%;
   }
 
-  #home h3{
-    font-size: 1.5em;
+  nav{
+    padding: 1em 5%;
+  }
+
+  .title{
+    font-size: 2em;
+  }
+
+  .section_text_p1{
+    font-size: 1em;
+  }
+
+  .section_text_p2{
+    font-size: 1.2em;
   }
 
   #home img{
-    width: 32vw;
+    width: 70vw;
+    max-width: 250px;
   }
 
-  #about .skills{
-    gap: 3em;
+  .about-box h1{
+    font-size: 2em;
   }
 
-  #projects .header{
-    font-size: 3em;
+  .about-info p {
+    font-size: 1.1em;
+    line-height: 1.6;
   }
 
-  #contact .header{
-    font-size: 3em;
+  .about-box h2{
+    font-size: 1.5em;
+  }
+
+  .skills{
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  .header{
+    font-size: 2.5em;
+  }
+
+  .box h1{
+    font-size: 1.3em;
+  }
+
+  .box{
+    min-height: 300px;
+    padding: 1em;
+  }
+
+  .socials i{
+    font-size: 2em;
+  }
+}
+
+@media(max-width: 480px){
+  section{
+    padding: 5em 4%;
+  }
+
+  nav{
+    padding: 1em 4%;
+  }
+
+  .logo{
+    font-size: 1.5em;
+  }
+
+  .title{
+    font-size: 1.8em;
+  }
+
+  .header{
+    font-size: 2em;
+  }
+
+  .btn{
+    width: auto; /* Allow button to fit content */
+    padding: 0.8em 1.5em; /* Adjust padding for better fit */
+    font-size: 0.8em; /* Adjust font size for better readability */
+  }
+
+  #home img{
+    width: 80vw;
+    max-width: 200px;
+  }
+
+  .about-box h1{
+    font-size: 1.8em;
+  }
+
+  .about-info p {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+
+  .box{
+    min-height: 280px;
+    padding: 0.8em;
+  }
+
+  .box h1{
+    font-size: 1.2em;
+  }
+
+  .carousel-nav{
+    font-size: 1.2em;
+    padding: 0.2em;
   }
 }

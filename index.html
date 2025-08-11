@@ -11,7 +11,7 @@
     />
   </head>
   <body>
-    
+
       <nav>
         <a href="#" class="logo"><span>Joshua Olisa</span></a>
 
@@ -19,60 +19,53 @@
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+          <a href="#" onclick="window.open('./Resume.pdf')" class="resume-link">Resume</a>
         </ul>
 
         <i class='bx bx-menu-alt-right' id="menu"></i>
 
         <button
-        class="nav-btn" onclick="window.open('./Resume.pdf')">Download Resume
+        class="nav-btn" onclick="window.open('./Resume.pdf')">Contact Me
         </button>
 
       </nav>
 
-     <section id ="home">
+    <section id="home">
         <div class="Profile-container">
-          <img src="Profile.jpg" alt="Profile Picture" />
+            <img src="Profile.jpg" alt="Profile Picture" />
         </div>
         <div class="section_text">
-          <p class="section_text_p1">Hello, I'm</p>
-          <h1 class="title"><span>Joshua Olisa</span></h1>
-          <p class="section_text_p2">Data Scientist</p>
-          <div class="btn-container">
-            </button>
-            <button class="btn btn-color-1" onclick="location.href='./#contact'">
-              Contact Info
-            </button>
-
-          </button>
-          <button class="btn btn-color-2" onclick="location.href='./#about'">
-            More
-          </button>
-
-          </div>
-          <div id="socials-container">
-            <img
-              src="./linkedin.png"
-              alt="My LinkedIn profile"
-              class="icon"
-              onclick="location.href='https://www.linkedin.com/in/joshua-olisa-emodoh/'"
-            />
-            <img
-              src="./github.png"
-              alt="My Github profile"
-              class="icon"
-              onclick="location.href='https://github.com/Joshua-Olisa'"
-            />
-          </div>
+            <p class="section_text_p1">Hi, I am</p>
+            <h1 class="title"><span>Joshua Olisa</span></h1>
+            <p class="section_text_p2">
+                <span id="typewriter"></span>
+                <span class="cursor">|</span>
+            </p>
+            <div class="btn-container">
+                <button class="nav-btn2" onclick="window.open('./Resume.pdf')">My Resume</button>
+            </div>
+            <div id="socials-container">
+                <img
+                    src="./linkedin.png"
+                    alt="My LinkedIn profile"
+                    class="icon"
+                    onclick="location.href='https://www.linkedin.com/in/joshua-olisa-emodoh/'"
+                />
+                <img
+                    src="./github.png"
+                    alt="My Github profile"
+                    class="icon"
+                    onclick="location.href='https://github.com/Joshua-Olisa'"
+                />
+            </div>
         </div>
-
-      </section>
+    </section>
 
       <section id="about">
 
         <div class="about-box">
 
-          <h1><span>About Me</span></h1>
+          <h1><span>Who I am</span></h1>
 
           <div class="about-info">
             <p>Enthusiastic and motivated university graduate with a strong 
@@ -80,40 +73,40 @@
               and problem-solving. A dedicated team player, hardworking, and committed to contributing innovative solutions while 
               growing professionally and developing a strong work ethic.</p>
           </div>
-  
+
           <h2><span>Skills</spanSkills></h2>
-  
+
             <div class="skills">
               <ul>
                 <li>
                   <span><i class='bx bx-chevron-right' undefined ></i>Excel</span>
                 </li>
-  
+
                 <li>
                   <span><i class='bx bx-chevron-right' undefined ></i>SQL</span>
                 </li>
-  
+
                 <li>
                   <span><i class='bx bx-chevron-right' undefined ></i>Tableau</span>
                 </li>
               </ul>
-  
+
               <ul>
                 <li>
                   <span><i class='bx bx-chevron-right' undefined ></i>Python</span>
                 </li>
-  
+
                 <li>
                   <span><i class='bx bx-chevron-right' undefined ></i>R</span>
                 </li>
-  
+
                 <li>
                   <span><i class='bx bx-chevron-right' undefined ></i>Power BI</span>
                 </li>
               </ul>
 
             </div>
-            
+
         </div>
 
         <img src="About.jpg" alt="">
@@ -123,48 +116,82 @@
         <h1 class="header"><span>Projects</span></h1>
 
         <div class="project-container">
+          <button class="carousel-nav carousel-prev">&lt;</button>
+          <button class="carousel-nav carousel-next">&gt;</button>
 
-          <a href="https://github.com/Joshua-Olisa/Customer-Segementation-Using-K-Means-Clustering" class="box" target="_blank">
-            <img src="cust-seg.png" alt="">
+          <div class="carousel-wrapper">
 
-            <h1><span>Customer Segmentation Using K-Means Clustering</span></h1>
+            <!-- Item 1 -->
+            <div class="carousel-item">
+              <a href="https://github.com/Joshua-Olisa/Natural-Language-Text-Processing-Analysis-Airline-Review-NLP" class="box" target="_blank">
+                <img src="NLP-in-Artificial-Intelligence.jpg" alt="">
+                <h1><span>Natural Language Text Processing Analysis Airline Review</span></h1>
+                <p> An end-to-end NLP pipeline that web-scrapes and cleans airline reviews, applies tokenization and lemmatization, then generates word clouds and frequency analyses. 
+                  It uses VADER for sentiment scoring and Gensim LDA for topic modeling to deliver visuals and actionable insights.
+                </p>
+              </a>
+            </div>
 
-            <p>The main goal is to identify the most important shopping groups based on income, age, spending score and 
-              provide recommendations to the marketing team
-              to help develop a tailored strategy for different customer groups
-            </p>
-  
-          </a>
+            <!-- Item 2 -->
+            <div class="carousel-item">
+              <a href="https://github.com/Joshua-Olisa/Customer-Segementation-Using-K-Means-Clustering" class="box" target="_blank">
+                <img src="cust-seg.png" alt="">
+                <h1><span>Customer Segmentation Using K-Means Clustering</span></h1>
+                <p>The main goal is to identify the most important shopping groups based on income, age, spending score and 
+                  provide recommendations to the marketing team
+                  to help develop a tailored strategy for different customer groups
+                </p>
+              </a>
+            </div>
 
-          <a href="https://github.com/Joshua-Olisa/Bellabeat-Case-Study-Google-Data-Analytics-Capstone" class="box" target="_blank">
+            <!-- Item 3 -->
+            <div class="carousel-item">
+              <a href="https://github.com/Joshua-Olisa/Bank-Customer-Churn--Analysis-Insights-and-Strategic-Recommendations" class="box" target="_blank">
+                <img src="churn.jpeg" alt="">
+                <h1><span>Bank Customer Churn Analysis Insights and Strategic Recommendations</span></h1>
+                <p> This project performs an exploratory analysis on a bank’s customer dataset to reveal the main drivers of attrition. 
+                  By examining demographics, account balances, satisfaction scores, and regional trends, it uncovers patterns and provides data-backed recommendations for improving customer retention.
+                </p>
+              </a>
+            </div>
 
-            <img src="bellabeat3809.jpg" alt="">
+            <!-- Item 4 -->
+            <div class="carousel-item">
+              <a href="https://github.com/Joshua-Olisa/Data-Driven-Retail-Decisions-Store-Performance-Customer-Behavior-Analysis-" class="box" target="_blank">
+                <img src="Customer-Behavior.png" alt="">
+                <h1><span>Customer Behavior Analysis: Data Driven Retail Decisions Store Performance</span></h1>
+                <p> A full-cycle retail analytics project that ingests customer transaction data to uncover purchasing behaviors, identify sales drivers, and visualize performance trends. 
+                  It defines control store metrics to evaluate trial layouts, leveraging Python and SQL for deep analysis and Tableau for interactive dashboards.
+                </p>
+              </a>
+            </div>
 
-            <h1><span>BellaBeat Data Analysis Capstone Project</span></h1>
+            <!-- Item 5 -->
+            <div class="carousel-item">
+              <a href="https://github.com/Joshua-Olisa/Bellabeat-Case-Study-Google-Data-Analytics-Capstone" class="box" target="_blank">
+                <img src="bellabeat3809.jpg" alt="">
+                <h1><span>BellaBeat Data Analysis Capstone Project</span></h1>
+                <p>This project uses Fitbit fitness tracker data to explore how users engage with their devices. Conducted as part of the Google Data Analytics Capstone, 
+                  it applies SQL for data preparation and Tableau for visualization to identify patterns that can inform Bellabeat’s marketing strategy.
+                </p>
+              </a>
+            </div>
 
-            <p>The company’s cofounder, would like an analysis of Bellabeat’s available consumer data to identify growth opportunities. 
-              She has asked the marketing analytics team to analyze smart device usage data to gain insight into how people are already using their smart devices. 
-              Then, using this information, she would like recommendations for how these trends can inform Bellabeat marketing strategy.
-            </p>
-  
-          </a>
 
-          <div class="box">
-
-            <img src="churn.jpeg" alt="">
-            <h1><span>Customer Churn Rate Analysis</span></h1>
-
-            <p> Taking on the role of a data analyst at a bank. The Bank wants to know why customers leave the bank and to significantly reduce the rate at which customers leave the bank (Churn rate). 
-              My approach is to find out the key factors that lead a client to decide to leave the bank and give actionable insights and recommendations.
-            </p>
-  
           </div>
-         </div>
+
+          <div class="carousel-indicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+          </div>
+        </div>
 
          <div class="btn-container-project">
-            </button>
             <button class="btn btn-color-1p" onclick="window.open('https://github.com/Joshua-Olisa?tab=repositories', '_blank')">
-            More
+              <img src="./github.png" alt="GitHub logo" class="github-icon" />
+            More on GitHub
             </button>
          </div>
       </section>
@@ -184,24 +211,24 @@
             <span><i class='bx bxl-linkedin-square' ></i></span>
             <p><a href="https://www.linkedin.com/in/joshua-olisa-emodoh/">LinkedIn Profile</a></p>
             </div>
-          
+
           <div class="socials"> 
             <span><i class='bx bxl-github' ></i></span>
             <p><a href="https://github.com/Joshua-Olisa">Github Profile</a></p>
           </div>
-           
+
           <div class="socials">
             <span><img src="simple-icons--tableau.png" alt=""></span>
             <p><a href="https://public.tableau.com/app/profile/joshua.olisa.emodoh/vizzes">Tableau</a></p>
           </div>
-            
+
 
           </div>
       </div>
       </section>
 
       <footer>
-        <p>Copyright © 2024 Joshua Olisa-Emodoh. All Rights Reserved.</p>
+        <p>Copyright © 2025 Joshua Olisa-Emodoh. All Rights Reserved.</p>
     </footer>
     <script src="script.js"></script>
   </body>
