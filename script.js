@@ -48,26 +48,52 @@ function typeRole() {
 // Carousel functionality
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-item');
-const indicators = document.querySelectorAll('.indicator');
 const totalSlides = slides.length;
+
+// Function to create indicators based on screen size
+function createIndicators() {
+    const indicatorContainer = document.querySelector('.carousel-indicators');
+    const isMobile = window.innerWidth <= 968;
+    
+    // Calculate number of indicators needed
+    const indicatorCount = isMobile ? totalSlides : totalSlides - 1; // 6 for mobile, 5 for desktop
+    
+    // Clear existing indicators
+    indicatorContainer.innerHTML = '';
+    
+    // Create new indicators
+    for (let i = 0; i < indicatorCount; i++) {
+        const indicator = document.createElement('div');
+        indicator.className = 'indicator';
+        if (i === 0) indicator.classList.add('active'); // First indicator active by default
+        
+        // Add click event
+        indicator.addEventListener('click', () => goToSlide(i));
+        
+        indicatorContainer.appendChild(indicator);
+    }
+}
 
 function showSlide(index) {
     const wrapper = document.querySelector('.carousel-wrapper');
+    const indicators = document.querySelectorAll('.indicator');
     const isMobile = window.innerWidth <= 968;
     
     // Calculate slide width based on viewport
-    const slideWidth = isMobile ? 100 : 53; // 50% for desktop (2 items), 100% for mobile
+    const slideWidth = isMobile ? 100 : 53; // 100% for mobile (1 item), 53% for desktop (2 items)
     
     wrapper.style.transform = `translateX(-${index * slideWidth}%)`;
     
-    // Update indicators
+    // Update indicators - ensure we don't exceed available indicators
     indicators.forEach((indicator, i) => {
         indicator.classList.toggle('active', i === index);
     });
 }
 
 function nextSlide() {
-    const maxSlides = totalSlides - (window.innerWidth <= 968 ? 1 : 2);
+    const isMobile = window.innerWidth <= 968;
+    const maxSlides = isMobile ? totalSlides - 1 : totalSlides - 2; // Mobile: 0-5, Desktop: 0-4
+    
     if (currentSlide < maxSlides) {
         currentSlide++;
         showSlide(currentSlide);
@@ -82,8 +108,79 @@ function prevSlide() {
 }
 
 function goToSlide(index) {
-    currentSlide = index;
+    const isMobile = window.innerWidth <= 968;
+    const maxSlides = isMobile ? totalSlides - 1 : totalSlides - 2;
+    
+    // Ensure index is within valid range
+    if (index >= 0 && index <= maxSlides) {
+        currentSlide = index;
+        showSlide(currentSlide);
+    }
+}
+
+// Function to handle responsive changes
+function handleResize() {
+    const isMobile = window.innerWidth <= 968;
+    const maxSlides = isMobile ? totalSlides - 1 : totalSlides - 2;
+    
+    // Reset current slide if it's beyond the new max
+    if (currentSlide > maxSlides) {
+        currentSlide = maxSlides;
+    }
+    
+    // Recreate indicators for new screen size
+    createIndicators();
+    
+    // Update display
     showSlide(currentSlide);
+}
+
+// Contact Form Modal Functions
+function openContactModal() {
+    const modal = document.getElementById('contactModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+}
+
+function closeContactModal() {
+    const modal = document.getElementById('contactModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+}
+
+// Close modal when clicking outside of it
+function handleModalClick(event) {
+    const modal = document.getElementById('contactModal');
+    if (event.target === modal) {
+        closeContactModal();
+    }
+}
+
+// Handle form submission
+function handleContactFormSubmit(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const message = document.getElementById('contact-message').value;
+    
+    // Basic validation
+    if (!name || !email || !message) {
+        alert('Please fill in all fields.');
+        return;
+    }
+    
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`Contact from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    const mailtoLink = `mailto:joshua.olisaemodoh@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Close modal and reset form
+    closeContactModal();
+    event.target.reset();
 }
 
 // Start the typewriter animation when the page loads
@@ -99,15 +196,11 @@ document.addEventListener('DOMContentLoaded', function() {
         prevBtn.addEventListener('click', prevSlide);
     }
     
-    // Set up indicator click events
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => goToSlide(index));
-    });
+    // Initialize indicators
+    createIndicators();
 
     // Handle window resize for responsive carousel
-    window.addEventListener('resize', function() {
-        showSlide(currentSlide);
-    });
+    window.addEventListener('resize', handleResize);
 
     // Scroll animation for about section image
     const aboutImage = document.querySelector('#about img');
@@ -125,4 +218,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', checkScroll);
     checkScroll(); // Check on load in case already scrolled
+    
+    // Set up contact form event listeners
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleContactFormSubmit);
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeContactModal();
+        }
+    });
 });

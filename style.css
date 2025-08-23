@@ -306,7 +306,7 @@ section{
 .header{
   text-align: center;
   font-size: 5em;
-  margin: 0.53em 0;
+  margin: 0.2em 0 0.4em 0;
 }
 .project-container{
   position: relative;
@@ -816,5 +816,202 @@ footer{
   .carousel-nav{
     font-size: 1.2em;
     padding: 0.2em;
+  }
+}
+
+/* Contact Modal Styles */
+.contact-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.contact-modal-content {
+  position: relative;
+  background-color: var(--second-background);
+  border: 2px solid #3ec5ff;
+  border-radius: 1em;
+  padding: 2em;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from { 
+      transform: translateY(-50px);
+      opacity: 0;
+  }
+  to { 
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+.contact-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.contact-modal-close:hover {
+  opacity: 1;
+}
+
+.contact-form-container h2 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+.contact-form-container p {
+  text-align: center;
+  color: white;
+  opacity: 0.8;
+  margin-bottom: 2em;
+}
+
+.contact-form-container p a {
+  color: #3ec5ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-form-container p a:hover {
+  color: white;
+}
+
+.contact-input-group {
+  position: relative;
+  margin-bottom: 1.5em;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 0.5em;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.contact-input-group:focus-within {
+  box-shadow: 0 0 0 2px #3ec5ff;
+}
+
+.contact-input-group i {
+  padding: 1em;
+  color: var(--background);
+  font-size: 1.2em;
+  min-width: 50px;
+  text-align: center;
+  background-color: #f8f8f8;
+  border-right: 1px solid #e0e0e0;
+}
+
+.contact-input-group input,
+.contact-input-group textarea {
+  flex: 1;
+  padding: 1em;
+  border: none;
+  outline: none;
+  background-color: white;
+  color: var(--background);
+  font-size: 1em;
+  font-family: "Poppins", sans-serif;
+  resize: vertical;
+}
+
+.contact-input-group input::placeholder,
+.contact-input-group textarea::placeholder {
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.contact-submit-btn {
+  width: 100%;
+  padding: 1em;
+  background-color: #3ec5ff;
+  color: var(--background);
+  border: none;
+  border-radius: 0.5em;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.contact-submit-btn:hover {
+  background-color: white;
+  color: var(--background);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(62, 197, 255, 0.3);
+}
+
+.contact-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile Responsive */
+@media(max-width: 968px) {
+  .contact-modal-content {
+      padding: 1.5em;
+      margin: 1em;
+  }
+  
+  .contact-form-container h2 {
+      font-size: 2em;
+  }
+  
+  .contact-input-group {
+      margin-bottom: 1.2em;
+  }
+  
+  .contact-input-group i {
+      padding: 0.8em;
+      min-width: 45px;
+  }
+  
+  .contact-input-group input,
+  .contact-input-group textarea {
+      padding: 0.8em;
+      font-size: 0.95em;
+  }
+}
+
+@media(max-width: 480px) {
+  .contact-modal-content {
+      padding: 1em;
+      width: 95%;
+  }
+  
+  .contact-form-container h2 {
+      font-size: 1.8em;
+  }
+  
+  .contact-modal-close {
+      top: 0.5rem;
+      right: 1rem;
+      font-size: 1.8em;
   }
 }

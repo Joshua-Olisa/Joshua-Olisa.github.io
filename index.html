@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Website</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Favicon/favicon-16x16.png">
+    <link rel="manifest" href="Favicon/site.webmanifest">
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -25,7 +29,7 @@
         <i class='bx bx-menu-alt-right' id="menu"></i>
 
         <button
-        class="nav-btn" onclick="window.open('./Resume.pdf')">Contact Me
+        class="nav-btn" onclick="openContactModal()">Contact Me</button>
         </button>
 
       </nav>
@@ -135,6 +139,18 @@
             <!-- Item 2 -->
             <div class="carousel-item">
               <a href="https://github.com/Joshua-Olisa/Customer-Segementation-Using-K-Means-Clustering" class="box" target="_blank">
+                <img src="4445-scaled-4.jpg" alt="">
+                <h1><span>Predictive Modeling of Airline Customer Bookings Using Ensemble and Gradient-Boosting ML Algorithms</span></h1>
+                <p>The aim was to produce a robust predictive model that can identify booking events (the positive class) with strong recall while balancing precision to reduce false positives,
+                  demonstrate preprocessing strategies and modelling techniques suitable for imbalanced classification problems and
+                  to provide actionable insights and recommendations that could inform a production-ready model or a business decision-making process.
+                </p>
+              </a>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="carousel-item">
+              <a href="https://github.com/Joshua-Olisa/Customer-Segementation-Using-K-Means-Clustering" class="box" target="_blank">
                 <img src="cust-seg.png" alt="">
                 <h1><span>Customer Segmentation Using K-Means Clustering</span></h1>
                 <p>The main goal is to identify the most important shopping groups based on income, age, spending score and 
@@ -144,7 +160,7 @@
               </a>
             </div>
 
-            <!-- Item 3 -->
+            <!-- Item 4 -->
             <div class="carousel-item">
               <a href="https://github.com/Joshua-Olisa/Bank-Customer-Churn--Analysis-Insights-and-Strategic-Recommendations" class="box" target="_blank">
                 <img src="churn.jpeg" alt="">
@@ -155,7 +171,7 @@
               </a>
             </div>
 
-            <!-- Item 4 -->
+            <!-- Item 5 -->
             <div class="carousel-item">
               <a href="https://github.com/Joshua-Olisa/Data-Driven-Retail-Decisions-Store-Performance-Customer-Behavior-Analysis-" class="box" target="_blank">
                 <img src="Customer-Behavior.png" alt="">
@@ -166,7 +182,7 @@
               </a>
             </div>
 
-            <!-- Item 5 -->
+            <!-- Item 6 -->
             <div class="carousel-item">
               <a href="https://github.com/Joshua-Olisa/Bellabeat-Case-Study-Google-Data-Analytics-Capstone" class="box" target="_blank">
                 <img src="bellabeat3809.jpg" alt="">
@@ -180,21 +196,18 @@
 
           </div>
 
-          <div class="carousel-indicators">
-            <div class="indicator active"></div>
-            <div class="indicator"></div>
-            <div class="indicator"></div>
-            <div class="indicator"></div>
-            <div class="indicator"></div>
-          </div>
-        </div>
+          <div class="carousel-indicators"></div>
 
-         <div class="btn-container-project">
+          <div class="btn-container-project">
             <button class="btn btn-color-1p" onclick="window.open('https://github.com/Joshua-Olisa?tab=repositories', '_blank')">
               <img src="./github.png" alt="GitHub logo" class="github-icon" />
             More on GitHub
             </button>
          </div>
+
+        </div>
+
+         
       </section>
 
       <section id="contact">
@@ -205,28 +218,57 @@
           <div class="socials">
 
             <span><i class='bx bxs-envelope' ></i></span>
-            <p><a href="mailto:examplemail@gmail.com">Joshua.olisaemodoh@gmail.com</a></p>
+            <p><a href="mailto:examplemail@gmail.com">joshua.olisaemodoh@gmail.com</a></p>
           </div>
 
           <div class="socials">
             <span><i class='bx bxl-linkedin-square' ></i></span>
-            <p><a href="https://www.linkedin.com/in/joshua-olisa-emodoh/">LinkedIn Profile</a></p>
+            <p><a href="https://www.linkedin.com/in/joshua-olisa-emodoh/">My LinkedIn Profile</a></p>
             </div>
 
           <div class="socials"> 
             <span><i class='bx bxl-github' ></i></span>
-            <p><a href="https://github.com/Joshua-Olisa">Github Profile</a></p>
+            <p><a href="https://github.com/Joshua-Olisa">My Github Profile</a></p>
           </div>
 
           <div class="socials">
             <span><img src="simple-icons--tableau.png" alt=""></span>
-            <p><a href="https://public.tableau.com/app/profile/joshua.olisa.emodoh/vizzes">Tableau</a></p>
+            <p><a href="https://public.tableau.com/app/profile/joshua.olisa.emodoh/vizzes">My Tableau Profile</a></p>
           </div>
 
 
           </div>
       </div>
       </section>
+
+      <div id="contactModal" class="contact-modal" onclick="handleModalClick(event)">
+        <div class="contact-modal-content">
+            <span class="contact-modal-close" onclick="closeContactModal()">&times;</span>
+            <div class="contact-form-container">
+                <h2><span>Contact Me</span></h2>
+                <p>Or reach out manually to <a href="mailto:joshua.olisaemodoh@gmail.com">joshua.olisaemodoh@gmail.com</a></p>
+                
+                <form id="contactForm">
+                    <div class="contact-input-group">
+                        <i class='bx bx-user'></i>
+                        <input type="text" id="contact-name" placeholder="Your name" required>
+                    </div>
+                    
+                    <div class="contact-input-group">
+                        <i class='bx bx-envelope'></i>
+                        <input type="email" id="contact-email" placeholder="Email address" required>
+                    </div>
+                    
+                    <div class="contact-input-group">
+                        <i class='bx bx-edit'></i>
+                        <textarea id="contact-message" placeholder="Your message" rows="4" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="contact-submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
       <footer>
         <p>Copyright © 2025 Joshua Olisa-Emodoh. All Rights Reserved.</p>
