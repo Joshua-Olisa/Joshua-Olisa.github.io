@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Projects - Joshua Olisa</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Favicon/favicon-16x16.png">
+    <link rel="manifest" href="Favicon/site.webmanifest">
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+      <nav>
+        <a href="index.html" class="logo"><span>Joshua Olisa</span></a>
+
+        <ul class="links">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="#" onclick="window.open('./Resume.pdf')" class="resume-link">Resume</a>
+        </ul>
+
+        <i class='bx bx-menu-alt-right' id="menu"></i>
+
+        <button class="nav-btn" onclick="openContactModal()">Contact Me</button>
+
+      </nav>
+
+      <section id="all-projects">
+        <h1 class="header"><span>My Projects</span></h1>
+        <p class="projects-subtitle">Here are some of the projects that I have worked on so far.</p>
+
+        <div class="all-projects-grid">
+        
+         <!-- Project X --> 
+            <!-- DELETE ROW TO MAKE VISIBLE 
+          <div class="project-grid-item">
+            <a href="GITHUB LINK" class="box" target="_blank">
+              <img src="IMAGE FILE NAME" alt="------">
+              <h1><span>TITLE OF PROJECT</span></h1>
+              <p> DESCRIPTIONS OF PROJECT
+              </p>
+            </a>
+          </div> 
+          DELETE ROW TO MAKE VISIBLE --> 
+
+          <!-- Project 6 -->
+          <div class="project-grid-item">
+            <a href="https://github.com/Joshua-Olisa/Natural-Language-Text-Processing-Analysis-Airline-Review-NLP" class="box" target="_blank">
+              <img src="NLP-in-Artificial-Intelligence.jpg" alt="Natural Language Processing Project">
+              <h1><span>Natural Language Text Processing Analysis Airline Review</span></h1>
+              <p>An end-to-end NLP pipeline that web-scrapes and cleans airline reviews, applies tokenization and lemmatization, then generates word clouds and frequency analyses. 
+                It uses VADER for sentiment scoring and Gensim LDA for topic modeling to deliver visuals and actionable insights.
+              </p>
+            </a>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-grid-item">
+            <a href="https://github.com/Joshua-Olisa/Customer-Segementation-Using-K-Means-Clustering" class="box" target="_blank">
+              <img src="4445-scaled-4.jpg" alt="Predictive Modeling Project">
+              <h1><span>Predictive Modeling of Airline Customer Bookings Using Ensemble and Gradient-Boosting ML Algorithms</span></h1>
+              <p>The aim was to produce a robust predictive model that can identify booking events (the positive class) with strong recall while balancing precision to reduce false positives,
+                demonstrate preprocessing strategies and modelling techniques suitable for imbalanced classification problems and
+                to provide actionable insights and recommendations that could inform a production-ready model or a business decision-making process.
+              </p>
+            </a>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-grid-item">
+            <a href="https://github.com/Joshua-Olisa/Customer-Segementation-Using-K-Means-Clustering" class="box" target="_blank">
+              <img src="cust-seg.png" alt="Customer Segmentation Project">
+              <h1><span>Customer Segmentation Using K-Means Clustering</span></h1>
+              <p>The main goal is to identify the most important shopping groups based on income, age, spending score and 
+                provide recommendations to the marketing team
+                to help develop a tailored strategy for different customer groups
+              </p>
+            </a>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-grid-item">
+            <a href="https://github.com/Joshua-Olisa/Bank-Customer-Churn--Analysis-Insights-and-Strategic-Recommendations" class="box" target="_blank">
+              <img src="churn.jpeg" alt="Bank Customer Churn Analysis">
+              <h1><span>Bank Customer Churn Analysis Insights and Strategic Recommendations</span></h1>
+              <p>This project performs an exploratory analysis on a bank's customer dataset to reveal the main drivers of attrition. 
+                By examining demographics, account balances, satisfaction scores, and regional trends, it uncovers patterns and provides data-backed recommendations for improving customer retention.
+              </p>
+            </a>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-grid-item">
+            <a href="https://github.com/Joshua-Olisa/Data-Driven-Retail-Decisions-Store-Performance-Customer-Behavior-Analysis-" class="box" target="_blank">
+              <img src="Customer-Behavior.png" alt="Customer Behavior Analysis">
+              <h1><span>Customer Behavior Analysis: Data Driven Retail Decisions Store Performance</span></h1>
+              <p>A full-cycle retail analytics project that ingests customer transaction data to uncover purchasing behaviors, identify sales drivers, and visualize performance trends. 
+                It defines control store metrics to evaluate trial layouts, leveraging Python and SQL for deep analysis and Tableau for interactive dashboards.
+              </p>
+            </a>
+          </div>
+
+          <!-- Project 1 -->
+          <div class="project-grid-item">
+            <a href="https://github.com/Joshua-Olisa/Bellabeat-Case-Study-Google-Data-Analytics-Capstone" class="box" target="_blank">
+              <img src="bellabeat3809.jpg" alt="BellaBeat Data Analysis">
+              <h1><span>BellaBeat Data Analysis Capstone Project</span></h1>
+              <p>This project uses Fitbit fitness tracker data to explore how users engage with their devices. Conducted as part of the Google Data Analytics Capstone, 
+                it applies SQL for data preparation and Tableau for visualization to identify patterns that can inform Bellabeat's marketing strategy.
+              </p>
+            </a>
+          </div>
+        
+        </div>
+        
+        <div class="btn-container-project">
+            <button class="btn btn-color-1p" onclick="window.open('https://github.com/Joshua-Olisa?tab=repositories', '_blank')">
+              <img src="./github.png" alt="GitHub logo" class="github-icon" />
+            More on GitHub
+            </button>
+        </div>
+      </section>
+
+      <!-- Contact Modal -->
+      <div id="contactModal" class="contact-modal" onclick="handleModalClick(event)">
+        <div class="contact-modal-content">
+            <span class="contact-modal-close" onclick="closeContactModal()">&times;</span>
+            <div class="contact-form-container">
+                <h2><span>Contact Me</span></h2>
+                <p>Or reach out manually to <a href="mailto:joshua.olisaemodoh@gmail.com">joshua.olisaemodoh@gmail.com</a></p>
+                
+                <form id="contactForm">
+                    <div class="contact-input-group">
+                        <i class='bx bx-user'></i>
+                        <input type="text" id="contact-name" placeholder="Your name" required>
+                    </div>
+                    
+                    <div class="contact-input-group">
+                        <i class='bx bx-envelope'></i>
+                        <input type="email" id="contact-email" placeholder="Email address" required>
+                    </div>
+                    
+                    <div class="contact-input-group">
+                        <i class='bx bx-edit'></i>
+                        <textarea id="contact-message" placeholder="Your message" rows="4" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="contact-submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>Copyright © 2025 Joshua Olisa-Emodoh. All Rights Reserved.</p>
+      </footer>
+      
+      <script src="script.js"></script>
+  </body>
+</html>
