@@ -19,6 +19,9 @@ This project serves as a comprehensive digital resume and project hub, designed 
 
 + Project Showcase: Highlights major work such as my "Natural Language Text Processing Analysis" and "Bank Customer Churn Analysis," complete with descriptions and direct links.
 
++ Projects page with:
+Same navigation bar, contact modal functionality and footer, Headers and description and Grid layout showing all 6 projects (2 per row on desktop, 1 per row on mobile) with clickable links to their respective GitHub repositories
+
 ## Built With
 The website is built using a clean, "vanilla" technology stack for high performance and complete design control:
 
